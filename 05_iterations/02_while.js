@@ -20,7 +20,7 @@
 
 //+++++++++ do while +++++++
 
-let score = 1;
+let score = 11;
 do{
     console.log(`Score is ${score}`);
     score ++ ;
