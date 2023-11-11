@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing Images</h2>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" id="tiger" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgf48x3wcFMN1udiL_f7m_BYz57ZNokbJ5zA&usqp=CAU" 
+                alt="tiger">
+            </li>
+            <li>
+                <img width="200px" id="dog" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlrZqTCInyg6RfYC7Ape20o-EWP1EN_A8fOA&usqp=CAU" 
+                alt="dog">
+            </li>
+            <li>
+                <img width="200px" id="monkey" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKf6AIxapOMdJYTcj1FSWE5-UPSm99lxns5w&usqp=CAU" 
+                alt="monkey">
+            </li>
+            <li>
+                <a href="https://google.com" style="color: aliceblue;" id="google">google</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+
+        // document.getElementById('dog').onclick= function(){
+        //     alert('Dog clicked')
+        // }
+
+        // document.getElementById('dog').addEventListener('click', ()=>{
+        //     alert('Dog clicked again');
+        // })
+
+        //Event propagation
+       //1. Event bubbling is a process where events travel from child to parent, indicating that the direction of event propagation is upward.
+       //2. Event capture is the process through which events pass from parent to child downward.
+       //For the capturing phase, we need to set the handler capture option of addEventListener() to true:
+
+        // document.getElementById('images').addEventListener('click',function(e){
+        //     console.log("Clicked inside the ul");
+        // },false)
+
+        // document.getElementById('dog').addEventListener('click', function(e){
+        //     console.log("Clicked the dog");
+        //     e.stopPropagation();     //this method is use to stop the event bubbling
+        // },false)
+
+        // document.getElementById('google').addEventListener('click',function(e){
+        //     e.preventDefault();             //this methos use to preventing for going to the server
+        //     e.stopPropagation();
+        //     console.log('Google clicked');
+        // })
+
+        document.querySelector('#images').addEventListener('click',function(event){
+            // console.log(event.target.parentNode);
+            // console.log(event.target.tagName);
+            if(event.target.tagName === 'IMG'){
+                console.log(event.target.id);
+            let removeImage = event.target.parentNode;
+            removeImage.remove();
+          }
+        })
+    </script>
+</body>
+</html>
