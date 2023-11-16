@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+
+    <script>
+        // setInterval(function(){
+        //     console.log("coder",Date.now());
+        // },1000)
+
+        //when we click the start button then the interval is start and when click the stop button then the interval method will stop
+        let intervalId ;
+
+        const sayDate = function(str){
+            console.log(str, Date.now());
+        }
+
+        // const intervalId = setInterval(sayDate, 1000, "coder");
+
+        document.querySelector('#start').addEventListener('click',function(){
+            intervalId = setInterval(sayDate,1000,"coder");
+        });
+        document.querySelector('#stop').addEventListener('click',function(){
+             clearInterval(intervalId);
+        });
+
+        
+       
+            
+
+    </script>
+</body>
+</html>
