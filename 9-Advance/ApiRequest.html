@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #userCard {
+          border: 1px solid #ccc;
+          padding: 20px;
+          margin: 20px;
+          width: 300px;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <div id="userCard">
+        <h2>User Info</h2>
+        <p id="userName"></p>
+        <p id="userFollowers"></p>
+      </div>
+    
+    <script>
+        const request  = 'https://api.github.com/users/Rabi318';
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', request);
+        xhr.onreadystatechange = function (){  
+            console.log(xhr.readyState);
+            if(xhr.readyState == 4){
+                const data = JSON.parse(this.responseText);
+                document.getElementById('userName').textContent=`Name: ${data.name || 'N/A'}`;
+                document.getElementById('userFollowers').textContent = `Login: ${data.login}`
+            }
+        }
+        xhr.send();
+    </script>
+</body>
+</html>
